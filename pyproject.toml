@@ -14,7 +14,20 @@ fastapi = "^0.95.0"
 pymilvus = "^2.2.0"
 torchvision = { version = "^0.15.0", optional = true }  # Если нужно CPU-only
 pillow = "^10.0.0"
+tqdm = "^4.67.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"  # Тесты (опционально)
 mypy = "^1.5.0"    # Статическая проверка типов
+
+[tool.ruff]
+line-length = 120
+select = [
+    "E",  # PEP 8
+    "F",  # Ошибки
+    "I",  # Импорты
+    "B",  # Баги
+    "D",  # Документация (pydocstyle)
+    "W",  # Предупреждения
+    "UP", # Модернизация кода
+]
