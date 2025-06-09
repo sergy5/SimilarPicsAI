@@ -1,24 +1,32 @@
-[build-system]
-requires = ["poetry-core>=1.0.0"]  # Базовый движок Poetry
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry]
+[project]
 name = "similarpics"
 version = "0.1.0"
 description = "Search similar images on your disk."
-package-mode = false  # не собираем пакет
+authors = [
+    { name = "Sergey Tushev", email = "sergy5@mail.ru" },
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }  # или другой тип лицензии
+keywords = ["images", "similarity", "search"]
 
-[tool.poetry.dependencies]
-python = "^3.10"  # Фиксируем версию Python
-fastapi = "^0.95.0"
-pymilvus = "^2.2.0"
-torchvision = { version = "^0.15.0", optional = true }  # Если нужно CPU-only
-pillow = "^10.0.0"
-tqdm = "^4.67.1"
+dependencies = [
+    "fastapi>=0.95.0",
+    "pymilvus>=2.2.0",
+    "pillow>=10.0.0",
+    "tqdm>=4.67.1",
+]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.0"  # Тесты (опционально)
-mypy = "^1.5.0"    # Статическая проверка типов
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "mypy>=1.5.0",
+]
+torch = ["torchvision>=0.15.0"]  # Опциональная зависимость
+
+[project.urls]
+Homepage = "https://github.com/sergy5/similarpics"
+Repository = "https://github.com/sergy5/similarpics.git"
 
 [tool.ruff]
 line-length = 120
