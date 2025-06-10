@@ -4,6 +4,6 @@ Service API based on fastapi
 """
 
 
-def foo():
+def foo() -> str:
     """Foo function."""
-    print("hw")
+    return "hw"

@@ -3,6 +3,6 @@
 from src import api
 
 
-def test_foo():
+def test_foo() -> None:
     """Docstring."""
-    assert api.foo() is None
+    assert api.foo() == "hw"
